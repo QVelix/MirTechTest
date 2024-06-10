@@ -2,6 +2,7 @@
 
 public class Staff
 {
+	public long Id { get; set; }
 	public string Department { get; set; }
 	public string FullName { get; set; }
 	public DateOnly BirthDay { get; set; }
