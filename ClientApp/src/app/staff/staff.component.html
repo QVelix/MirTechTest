@@ -1,1 +1,24 @@
-<p>staff works!</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Отдел</th>
+    <th scope="col">Ф.И.О.</th>
+    <th scope="col">Дата рождения</th>
+    <th scope="col">Дата устройства на работу</th>
+    <th scope="col">Заработная плата</th>
+    <th scope="col">Создание/удаление/редактирование сотрудника</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let staff of staffs">
+      <td>{{ staff.Department }}</td>
+      <td>
+        {{ staff.FullName }}
+      </td>
+      <td>{{ staff.BirthDate | date}}</td>
+      <td>{{ staff.DateOfEmployment | date }}</td>
+      <td>{{ staff.Wages | number }}</td>
+      <td><button>Адд</button> <button>делете</button> <button>чейнж</button></td>
+    </tr>
+  </tbody>
+</table>
