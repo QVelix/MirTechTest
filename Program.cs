@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MirTechTest.Models;
+
 namespace MirTechTest;
 
 public class Program
@@ -5,7 +8,13 @@ public class Program
 	public static void Main(string[] args)
 	{
 		var builder = WebApplication.CreateBuilder(args);
-
+		//Определяем контекст и подключение к бд
+		builder.Services.AddDbContext<ApplicationContext>(options =>
+		{
+			//TODO: Раскомментировать строчку ниже, когда будет работать MSSQL и закомментировать UseInMemory
+			//options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+			options.UseInMemoryDatabase("MirTechTest");
+		});
 		// Add services to the container.
 
 		builder.Services.AddControllersWithViews();
