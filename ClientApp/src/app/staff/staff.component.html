@@ -18,7 +18,11 @@
       <td>{{ staff.BirthDate | date}}</td>
       <td>{{ staff.DateOfEmployment | date }}</td>
       <td>{{ staff.Wages | number }}</td>
-      <td><button>Адд</button> <button>делете</button> <button>чейнж</button></td>
+      <td>
+        <button (click)="onClickOpenModal('post', null)">Адд</button>
+        <button>делете</button>
+        <button (click)="onClickOpenModal('put', null)">чейнж</button>
+      </td>
     </tr>
   </tbody>
   <ng-template #elseBlock>
