@@ -6,10 +6,10 @@
     <th scope="col">Дата рождения</th>
     <th scope="col">Дата устройства на работу</th>
     <th scope="col">Заработная плата</th>
-    <th scope="col">Создание/удаление/редактирование сотрудника</th>
+    <th scope="col"></th>
   </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="staffs.length>0; else elseBlock">
     <tr *ngFor="let staff of staffs">
       <td>{{ staff.Department }}</td>
       <td>
@@ -21,4 +21,16 @@
       <td><button>Адд</button> <button>делете</button> <button>чейнж</button></td>
     </tr>
   </tbody>
+  <ng-template #elseBlock>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><button (click)="onClickOpenModal('post', null)">Создать</button></td>
+      </tr>
+    </tbody>
+  </ng-template>
 </table>
